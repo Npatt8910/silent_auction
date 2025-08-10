@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin: View Bids</title>
+</head>
+<body>
+  <h1>Silent Auction Bids</h1>
+  <ul>
+    <% bids.forEach(bid => { %>
+      <li><strong><%= bid.name %></strong> - $<%= bid.amount %> - <%= bid.email %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
