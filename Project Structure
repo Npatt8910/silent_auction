@@ -1,0 +1,9 @@
+silent-auction/
+├── public/
+│   └── styles.css
+├── views/
+│   ├── index.ejs
+│   └── admin.ejs
+├── server.js
+├── bids.json
+└── README.md
