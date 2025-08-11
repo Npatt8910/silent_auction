@@ -17,3 +17,18 @@
   </form>
 </body>
 </html>
+<script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    const minBid = <%= car.minBid %>;
+    const bidAmount = parseFloat(document.querySelector('input[name="amount"]').value);
+
+    if (bidAmount < minBid) {
+      alert(`Bid must be at least $${minBid}`);
+      e.preventDefault();
+    } else if ((bidAmount - minBid) % 25 !== 0) {
+      alert('Bids must increase in $25 increments');
+      e.preventDefault();
+    }
+  });
+</script>
+
