@@ -12,3 +12,38 @@
   </ul>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>🛠️ Admin Dashboard</h1>
+
+  <h2>Edit Car Info</h2>
+  <form action="/admin/update-car" method="POST">
+    <input type="hidden" name="password" value="<%= process.env.ADMIN_PASSWORD %>">
+    <label>Title: <input type="text" name="title" value="<%= car.title %>"></label><br>
+    <label>Description:<br>
+      <textarea name="description" rows="4" cols="50"><%= car.description %></textarea>
+    </label><br>
+    <label>Minimum Bid ($): <input type="number" name="minBid" value="<%= car.minBid %>"></label><br>
+    <label>Image URL: <input type="text" name="imageUrl" value="<%= car.imageUrl %>"></label><br>
+    <button type="submit">Update Car Info</button>
+  </form>
+
+  <h2>Current Listing</h2>
+  <img src="<%= car.imageUrl %>" alt="Car Image" width="400"><br>
+  <strong><%= car.title %></strong><br>
+  <p><%= car.description %></p>
+  <p>Minimum Bid: $<%= car.minBid %></p>
+
+  <h2>Submitted Bids</h2>
+  <ul>
+    <% bids.forEach(bid => { %>
+      <li><strong><%= bid.name %></strong> - $<%= bid.amount %> - <%= bid.email %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
